@@ -1,0 +1,60 @@
+import React from "react";
+import MiniContacts from "./MiniContacts";
+import { navLinks } from "../data";
+import Logo from "../assets/favicon.ico";
+
+function Navigation() {
+  return (
+    <nav className="max-w-[1240px] mx-auto bg-white">
+      <MiniContacts />
+      <div className="flex justify-between text-gray-700">
+        {/* Brand Logo */}
+        <div className="w-full  p-2">
+          <a href="#">
+            <img src={Logo} className="h-10 w-38" alt="dragonfly logo" />
+          </a>
+        </div>
+        {/* Main Navigation */}
+        <ul className="flex">
+          {navLinks.map((link) => (
+            <a href={link.link} key={link.id} className="p-2 text-gray-700">
+              {link.title}
+            </a>
+          ))}
+        </ul>
+      </div>
+      <br />
+      <br />
+      <div className="flex">
+        <div className="flex justify-between items-center grow">
+          {/* Brand Logo */}
+          <div className="p-2">
+            <a href="#">
+              <img src={Logo} className="h-10 w-38" alt="dragonfly logo" />
+            </a>
+          </div>
+          {/* Main Navigation */}
+          <div className="flex grow justify-center space-x-4">
+            {navLinks.map((link) => (
+              <a href={link.link} key={link.id} className="py-3 text-gray-700">
+                {link.title}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Secondary Call To Action Button */}
+        <div className="flex items-center py-2 space-x-3">
+          <a href="" className="">
+            Login
+          </a>
+          <a href="" className="px-3 py-1 outline text-red-900 rounded">
+            Become a Dragon
+          </a>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
+export default Navigation;
